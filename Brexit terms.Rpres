@@ -1,0 +1,56 @@
+Brexit
+========================================================
+author: Sytze
+date: December 14, 2018
+autosize: true
+
+Introduction
+========================================================
+
+With this presentation I want to get your attention for the Shiny app "Brexit" that I made.
+
+It  makes use of the package *gtrendsR*, which lets you easily query Google Trends and
+plot the results. I chose to specifically look at search terms that are related to the Brexit.
+Apart for Brexit, you can search for:
+
+- Theresa May
+- Boris Johnson
+- Jeremy Corbyn
+
+The will show you how often the selected terms were searched for. You can select longer
+or shorter time intervals which will influence the level of detail.
+
+Introduction (continued)
+========================================================
+title: false 
+You can also selected different countries from which the search on Google was done. This 
+enables you to compare popularity of a specific term between countries. Is Boris Johnson 
+searched for in the USA in the same period as in Ireland? 
+
+In this app you can select these countries:
+- United Kingdom
+- USA
+- Ireland
+- France
+- The Netherlands
+
+Basic gtrendsR function
+========================================================
+The gtrends function is an easy function to display information provided by Google Trends
+Below you find the code for searches for Brexit and Theresa May in Great Britain between 2012 and 2018.
+```{r}
+library(gtrendsR)
+bx <- gtrends(keyword = c("Brexit", "Theresa May"), 
+              time = "2012-02-02 2018-02-02", 
+              geo = "GB")
+```
+
+The next slide will show the resulting plot with the call plot(bx). Please check out the Shiny app that 
+let's you create more of these plots.
+
+Brexit Plot
+========================================================
+
+```{r, echo = FALSE}
+plot(bx)
+```
